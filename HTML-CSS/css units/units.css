@@ -1,0 +1,38 @@
+div.c {
+ width: 200px;
+ height: 300px;
+ background-color: #384839
+}
+
+div.b {
+ width: 132px;
+ height: 200px;
+ background-color: #8098ff;
+}
+
+div.a {
+ width: 66px;
+ height: 100px;
+ background-color: #fea774;
+}
+
+section.parent {
+ width: 410px;
+ height: 200px;
+ background-color: rgba(23,34,34,0.2);
+}
+
+div.child {
+ width: 48.7%;
+ height: 60%;
+ background-color: #457884f9
+}
+section.i {
+ font-size: 10px;
+}
+p.t1 {font-size: 2em;
+ line-height: 9lh;}
+ 
+div.vhh {background-color: #60c09778;
+ width: 50vw;
+ height: 10vh;}

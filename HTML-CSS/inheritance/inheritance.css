@@ -1,0 +1,19 @@
+.parent{
+  color: orange;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2rem;
+  width: 200px;
+  height: 150px;
+  background: cyan;
+}
+
+.child{
+  position: relative;
+  left: 200px;
+  top: 50px;
+  background: inherit;
+  width: inherit;
+
+}

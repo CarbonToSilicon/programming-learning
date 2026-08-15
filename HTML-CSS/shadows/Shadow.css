@@ -1,0 +1,20 @@
+div.first {
+  width: 200px;
+  height: 100px; 
+  background-color: rgb(190, 15, 93);
+  box-shadow: 10px 20px 30px orange;
+}
+
+h1.second {
+  font-size: 50px;
+  color: #34f2d9;
+  text-shadow: 6px 3px 9px #146723; 
+}
+
+div.third {
+  height: 89px;
+  width: 89px;
+  background-color: #bf048478;
+  border-radius: 50% 50% 50% 50%;
+  box-shadow: -7px -4px 10px #010101
+}

@@ -1,0 +1,10 @@
+x = 50 # we need a int or float value in a variable to perform all other assignment operations, because they only work on pre-existing variable. And this use the first normal assignment operator (=)
+x = x + 20 # this is a modification of a variable, but it is slightly longer and repeats variable name. So there is another very cool way to modify any variable using other assignment operators such as (=, +=, -=, *, /=, **=, //=, %=) look at this expression ->
+x += 20 # it also dose the same thing as above expression but it is a smart way to do that. It is also adding 20 to the assignment x and x's value was 70 but now +20 so its 90
+x /= 2 # this assignment statement (augmented assignment statement) divides the vlaue of variable x and store that back in the x, 90/2 = 45 so x = 45 now
+x *= 2 # this assignment statement multiplies the value of variable x from 2 and store the result back to x, which is 45 * 2 = 90 so x = 90 now
+x %= 4 # this is also an assignment statement has a modulo expression. This symbol (%) is called modulo operator, which devides a a operand before this sign from the operand after this (%) sign and then return the reminder of this calculation. In this case x = 90 devided by 4 = 88 but 2 left it is the return value of this statement and this is called reminder value.
+x **= 5 # this is also an augmented assignment operator like other and it performs an exponentiation assignment. This (**) sign raises a vlaue or variable to a power and then assigns the result back to that same variable. In this case the result is 2 ** 5 = 32
+x //= 5 # this is called a floor division assignment operator. It is also a form of augmented assignment. It does the division but rounds the result down to the nearest whole number. For example in this statement x = 32/5 = 6.4 but it rouds of the result and stores 6 only as a result.
+ 
+print(x)

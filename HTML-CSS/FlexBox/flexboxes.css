@@ -1,0 +1,57 @@
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  height: 100vh;
+  background: blanchedalmond;
+}
+
+.container{
+  border: 2px solid white;
+  height: 700px;
+  width: 300px;
+  margin: 20px auto;
+  /* FlexBox stuff here */
+  display: flex;
+  /* flex-direction: row; */
+  /* flex-direction: row-reverse; */
+  /* flex-direction: column; */
+  /* flex-direction: column-reverse; */
+  /* justify-content: end; */
+  flex-wrap: wrap;
+  /* align-items: center; */
+  align-content:center;
+}
+
+.container .child{
+  width: 35px;
+  height: 35px;
+  background: crimson;
+  margin: 8px;
+  text-align: center;
+}
+
+.item1{
+  order: 5;
+  flex-shrink: -5;
+}
+
+.item2{
+  flex-shrink: 5;
+}
+
+.item3{
+  flex-grow: 5;
+}
+
+.item4{
+  order: -2;
+}
+
+.item5{
+  flex-basis: content;
+  /* flex-basis: 100px; */
+}

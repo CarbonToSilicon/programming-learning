@@ -1,0 +1,36 @@
+.container{
+  background: gray;
+  width: 90%;
+  height: 500px;
+  position: relative;
+}
+
+.d{
+  width: 100px;
+  height: 100px;
+}
+
+.one{
+  background: #ff0000;
+  position: relative;
+  left: 150px;
+}
+
+.two{
+  background: #00ff00;
+  position: absolute;
+  left: 50px;
+}
+
+.three{
+  background: #0000ff;
+  position: fixed;
+  left: 100px;
+}
+
+.four{
+  background: #c8c8c8;
+  position: sticky;
+  top: 150px;
+  right: 100px;
+}

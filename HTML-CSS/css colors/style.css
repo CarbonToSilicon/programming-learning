@@ -1,0 +1,8 @@
+h2 {color: rgba(234,56,23,0.3);}
+h2.title-a {color: hsl(257, 100%,79%);}
+h2.title-b {color: #60f070;}
+h2.title-c {
+ color: #ffffff;
+ background-color: #283f37;
+ font-size: 10px;}
+

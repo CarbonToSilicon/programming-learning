@@ -1,0 +1,30 @@
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+1234567890
+
+Ha HaHahaHa
+
+John Doe, age 30
+
+100 dollars, 50 euros, 20 dollars
+
+<div>First</div><div>Second</div>
+apple, banana, cherry, date
+
+MetaCharacters (Need to be escaped):
+. ^ $ * + ? { } [ ] \ | ( )
+
+coreyms.com
+
+321-555-4321
+123.555.1234
+123*555*1234
+800-555-1234
+900-555-1234
+
+Mr. Schafer
+Mr Smith
+Ms Davis
+Mrs. Robinson
+Mr. T

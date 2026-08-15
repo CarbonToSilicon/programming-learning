@@ -1,0 +1,26 @@
+* {font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 5vh;
+  }
+element * {color: rgba(45, 123, 234, 0.7);
+          text-align: right;}
+.name0 {text-transform: lowercase;}
+.name1 {font-style: italic;}
+.name2 {color: rgb(223,34,245);}
+
+#id1 {
+ color: lightskyblue;
+}
+
+h1.class02 {
+  text-shadow: 2.5px 2.5px grey
+}
+
+span p {
+  background-color: #ef7811;
+}
+
+div > p {color: #ff345488}
+
+div + p {letter-spacing: 9px;}
+
+a[href="one"] {color: orange;}

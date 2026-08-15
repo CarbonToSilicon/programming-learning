@@ -1,0 +1,238 @@
+<!DOCTYPE html>    <!--This declaration defines that this document is an HTML5 document-->
+<html>    <!--The html element is an root element of an HTML page-->
+    <head>    <!--The Head element contains meta information about the HTML page-->
+        <title>    <!--The Title element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab)-->    Google </title>    <!--end-->
+        
+    </head>    <!--end-->
+    <body>    <!-- The Body element defines the document's body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc. -->
+        <h1>    <!-- a large Heading -->
+            Heading
+        </h1>    <!--end-->
+        <h2>Heading</h2>
+        <h3>Heading</h3>
+        <h4>Heading</h4>
+        <h5>Heading</h5>
+        <h6>Heading</h6>
+        <hr />
+        
+        <br>    <!-- a break or a newline -->
+        It will show on the screen on the page.
+        <br>
+        
+        <pr>    <!-- It is used to write paragraphs -->
+            A paragraph
+        </pr>    <!--end-->
+        
+        <br>
+        <ol>    <!-- Ordered List -->
+            <li>    <!-- List Item -->
+                HTML
+            </li>
+            <li>CSS</li>
+            <li>JS</li>
+            <li>React</li>
+        </ol>
+        <ul>    <!-- Unordered List -->
+            <li>Sunday</li>
+            <li>Monday</li>
+            <li>Tuesday</li>
+        </ul>
+        <pr>The nested list- </pr>    <!-- nested list -->
+        <ul>
+            <li>WebDev</li>
+            <ol>
+                <li>Frontend<li>Backend<li>Database</li></li></li>
+            </ol>
+        </ul>
+        <dl>    <!-- definition lists -->
+            <dt>Sashimi</dt>    <!-- definition term -->
+            <dd>Sliced raw fish that is served with condiments such as sherdded daikon radish or ginger root, wasabi and soy sauce.</dd>    <!--definition-->
+            <dt>Scale</dt>
+            <dd>A device used to accurately measure the weight of ingredients</dd>
+            <dd>A technque by which the scales are removed form the skin of a fish</dd>
+        </dl>
+        <!-- Links -->
+            <!-- a means "anchor" -->
+               <!-- href means "Hypertext Reference" -->
+        <pr><a href="https://www.google.com">Click here</a> to go to google.com<br></pr>
+        <!-- Hyperlinks -->
+        <pr><a href="about.html">Click here</a> to go to our next page<br></pr>
+                 <!--email link-->
+        <a href="mailto:tusharex2021@gmail.com">e-mail T</a><br>
+                                      <!--opens in a new window-->
+        <a href="http://www.imdb.com" target="_blank">Internet Movie Database</a> (opens in new window) <br>
+                 <!--#id when linking-->
+        <a href="#end">tap to go to the bottom!</a><br><br>
+        
+        <!-- Local images -->
+             <!-- src means "source"-->   <!-- alt means "alternative" shown when image can't be render -->
+        <img src="pexels-alex-ivanov.jpg" alt="Image can't load" width="190px" height="290px"/>
+        <img src="/Internal storage/Download/pexels-spacex-5.jpg" alt="Image can't load" width="200px" height="200px"/>
+        <!-- Remote images -->
+        <figure>
+            
+            <img src= "https://images.pexels.com/photos/10963682/pexels-photo-10963682.jpeg" width="170x" height="290px"/><br />
+            <figcaption>A garden</figcaption>
+        </figure>
+        <!-- Forms -->
+        <form>
+            <!-- label tag is used to define a label for an input element. This tag helps improve accessebility and usability by associating a text description with a form control. -->
+            <label>Full name</label> <br>
+                   <!-- input type "text"-->
+            <input type="text" id="name" name="name" placeholder="Jane Doe" required> <br>
+            
+            <lable>Email <br> <input type="email" id="email" name="email" placeholder="example@provider.com" required> </lable> <br> 
+            
+            <lable>Password</lable> <br>
+            <input type="password"> <br>
+            
+            <input type="submit"> <br> <br>
+            <input type="button" value="Learn more">
+            <input type="checkbox">
+            <input type="color">
+            <input type="date">
+            <input type="file">
+            <input type="number">
+            <lable>Apple<input type="radio"></lable>
+            <input type="range">
+            <input type="url">
+            <input type="time"> <br> <br>
+        </form>
+        
+        <video controls src="Youll_Keep_Coming_Back.mp4" width="200px"></video>
+        <audio controls src="shidenbeatsmusic-birds39-forest.mp3"></audio> <br>
+        
+        <p>
+                 <!--bold-->
+            I am <b>Tushar</b> <br>
+                 <!--emphasize-->
+            i am <strong>Tushar</strong> <br>
+                     <!--italic-->
+            I am not <i>Okay</i> <br>
+                     <!--emphasize italic-->
+            I am not <em> Sure</em> <br>
+            <!--size small-->
+            <small>Hello</small> Tushar! <br>
+            <!--size big-->
+            <big>Hello</big> Tushar! <br>
+            <!--delete-->
+            <del>$200</del> -> $100 <br>
+            <!--should not be deleted and not relevant-->
+            <s>$200</s>
+                       <!--inserted-->
+            My name is <ins>Tushar.</ins> <br>
+             <!--subscript-->
+            x<sup>3</sup> <br>
+             <!--superscript-->
+            H<sub>2</sub>O <br>
+                    <!--marked-->
+            This is <mark>marked/highlighted</mark> <br>
+                        <!--abbreviation-->
+            Do you know <abbr title="Hyper text markup language">HTML</abbr>? <br>
+            
+            
+        </p>
+        <!--longer quote-->
+        <blockquote cite="http://en.wikipedia.org/wiki/Winne-the-Pooh"><p>Did you ever stop think, and forget to start agian?</p></blockquote>
+           <!--where the citation is from-->
+        <p><cite>A Brief History of Time</cite> by Stephen Hawking has sold over <span class="copies">ten million copies</span> worldwide.</p><br>
+            <!--giving an id-->
+        <h1 id="end">the End</h1><br>
+        
+        <!-- Table -->
+        
+        <table>
+         <!-- table row -->
+         <tr>
+          <th></th>
+          <th scope="col">Sun</th>
+          <th scope="col">Tue</th>
+          <th>Thu</th>
+          <th>Sat</th>
+         </tr>
+         <tr>
+          <!-- table data -->
+          <th>Tushar</th>
+          <td>23</td>
+          <td>03</td>
+          <td>29</td>
+          <td>53</td>
+         </tr>
+         <tr>
+          <th>Krishna</th>
+          <td>06</td>
+          <td>03</td>
+          <td>28</td>
+          <td>73</td>
+         </tr>
+         <tr>
+          <th scope="row">Roz</th>
+          <td>83</td>
+          <td>63</td>
+          <td>48</td>
+          <td>19</td>
+         </tr>
+        </table>
+        
+        <br><br>
+        <table>
+         <tr>
+          <th></th>
+          <th>9am</th>
+          <th>10am</th>
+          <th>11am</th>
+          <th>12am</th>
+         </tr>
+         <tr>
+          <th>Monday</th>
+          <td colspan="2">Geography</td>
+          <td>Math</td>
+          <td>Art</td>
+         </tr>
+         <tr>
+          <th>Tuesday</th>
+          <td colspan="3">Gym</td>
+          <td>Home Ec</td>
+         </tr>
+        </table>
+        
+        <table>
+         <thead>
+          <tr>
+           <th>Date</th>
+           <th>Income</th>
+           <th>Expenditure</th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <th>1st January</th>
+           <td>250</td>
+           <td>36</td>
+          </tr>
+          <tr>
+           <th>2nd January</th>
+           <td>285</td>
+           <td>48</td>
+          </tr>    <!-- additional rows as above -->
+          <tr>
+           <th>31st January</th>
+           <td>129</td>
+           <td>64</td>
+          </tr>
+         </tbody>
+         <tfoot>
+          <tr>
+           <td></td>
+           <td>7824</td>
+           <td>1241</td>
+          </tr>
+         </tfoot>
+        </table>
+        <iframe src="http://maps.google.co.uk/maps?q=moma+new+york&amp;output=embed" width="450" height="350" frameborder="0" scrolling="yes">
+         
+        </iframe>
+        
+        <br><br>    <!--2 Breaks-->
+    </body>    <!--end-->
+</html>    <!--end-->

@@ -1,0 +1,36 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+
+h1.dancing-script {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-size: 90px;
+  font-style: normal;
+  text-align: center;
+}
+
+
+
+h2 {font-family: "Courier New";
+	font-size: 30px;
+	text-align: right;
+	line-height: 10px;
+	letter-spacing: 2px;
+	color: crimson;
+	text-decoration: overline underline;
+	text-decoration: ;
+	text-transform: uppercase;
+	
+}
+
+p.a {word-spacing: 8px;
+ text-align-last: justify;
+ font-style: italic;
+ font-weight: bold;
+}
+
+a {text-decoration: none;
+ color: #12189990;
+}

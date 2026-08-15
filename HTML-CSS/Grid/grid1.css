@@ -1,0 +1,55 @@
+*{
+  margin: 0px;
+}
+
+.container{
+  padding: 30px;
+  background: linear-gradient(rgb(160, 180, 240), rgb(253, 141, 67));
+  height: 100vh;
+  background-attachment: fixed;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 20px;
+  grid-template-areas: 
+  "h h h"
+  "n m m"
+  "a m m"
+  "f f f";
+}
+
+.s {
+  padding: 0px;
+  background: radial-gradient(at top, rgb(255, 220, 177), #ffffff55);
+  text-align: center;
+  text-decoration: wavy;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  /* border-radius: 6% 6% 6% 6%; */
+  
+}
+
+header{
+  grid-area: h;
+  border-radius: 25px;
+  
+}
+
+nav{
+  grid-area: n;
+  border-radius: 25px;
+}
+
+main{
+  grid-area: m;
+  border-radius: 25px;
+}
+
+aside{
+  grid-area: a;
+  border-radius: 25px;
+}
+
+footer{
+  grid-area: f;
+  border-radius: 25px 25px 25px 25px;
+}
