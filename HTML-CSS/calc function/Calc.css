@@ -1,0 +1,18 @@
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.s{
+  background: #23f442;
+  width: calc(100px + 100px);
+  height: calc(200px - 100px);
+}
+
+.f{
+  background: #e33142;
+  width: calc(100px + 100px + 20ch);
+  height: calc(200px * 1.5);
+}
