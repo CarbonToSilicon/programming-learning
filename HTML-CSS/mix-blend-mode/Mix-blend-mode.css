@@ -1,0 +1,23 @@
+
+* {
+  margin: 0px;
+  padding: 0px;
+  block-size: border-box;
+}
+
+.container{
+  background: rgba(223,23,23,0.3);
+}
+
+.container .img{
+  background-image: url(https://plus.unsplash.com/premium_photo-1762154033233-1a1f9da94122?q=80&w=1211&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: fit;
+  height: 100vh;
+  mix-blend-mode: multiply;
+  mix-blend-mode: darken;
+  mix-blend-mode: lighten;
+  mix-blend-mode: color-dodge;
+  mix-blend-mode: color-burn;
+}
