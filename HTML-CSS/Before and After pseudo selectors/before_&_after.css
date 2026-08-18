@@ -1,0 +1,30 @@
+
+section {
+  background: #e8e3e3;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  color: green;
+}
+
+p::before {
+  content: "Hello, ";
+  font-size: 30px;
+  background: #37f377;
+  color: red;
+  font-weight: 900;
+}
+
+p::after {
+  content: "";
+  background-image: url(https://img.magnific.com/free-photo/closeup-shot-beautiful-butterfly-with-interesting-textures-orange-petaled-flower_181624-7640.jpg?semt=ais_test_b&w=740&q=80);
+  display: inline-block;
+  margin-left: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  height: 40px;
+  width: 60px;
+}
