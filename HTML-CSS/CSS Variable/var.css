@@ -1,0 +1,18 @@
+
+:root {
+  --primary-color: cyan;
+  --default-size: 3rem;
+  --font-family: fantasy;
+}
+
+h1 {
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: var(--default-size);
+}
+
+h3 {
+  font-family: var(--font-family);
+}
