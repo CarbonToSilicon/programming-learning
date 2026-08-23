@@ -55,5 +55,7 @@ body {
 }
 
 .card-skew:hover {
-    transform: skew(20deg);
+    transform: skewX(45deg);
+    /* transform: skewY(30deg); */
+    /* transform: skew(10deg, 40deg); */
 }
