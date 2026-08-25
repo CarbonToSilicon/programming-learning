@@ -1,0 +1,74 @@
+body {
+    margin: 0px;
+    padding: 5px;
+    background: #dcfabf;
+}
+
+.container {
+    width: 80vw;
+    height: fit-content;
+    padding: 3px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    row-gap: 15px;
+    column-gap: 50px;
+    
+}
+
+.container > div {
+    display: block;
+    height: 40px;
+    width: 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background: rgb(255, 177, 255);
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    
+}
+
+.block-0.active {
+    transform: translateX(85vw);
+    background-color: #85f4fc;
+}
+
+    /* transition here */
+
+.div1 {
+    transition-duration: 2s;
+    transition-property: transform, background-color;
+    transition-delay: 0.1s;
+    /* transition-timing-function: ease; */
+    /* transition-timing-function: ease-in; */
+    /* transition-timing-function: ease-out; */
+    transition-timing-function: ease-in-out;
+}
+
+.div2 {
+    transition-duration: 2s;
+    transition-property: transform, background-color;
+    transition-delay: 0.1s;
+    transition-timing-function: linear;
+}
+
+.div3 {
+    transition-duration: 2s;
+    transition-property: transform, background-color;
+    transition-delay: 0.1s;
+    /* transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); */
+    transition-timing-function: cubic-bezier(0.2,1.5,0.4,-0.59);
+}
+
+.div4 {
+    transition-duration: 2s;
+    transition-property: transform, background-color;
+    transition-delay: 0.1s;
+    /* transition-timing-function: steps(4, jump-none); */
+    /* transition-timing-function: steps(4, jump-start); */
+    /* transition-timing-function: steps(4, jump-end); */
+    transition-timing-function: steps(4, jump-both);
+}
