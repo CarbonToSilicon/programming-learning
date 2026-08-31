@@ -1,4 +1,10 @@
+// Boolean Values
+ 
+console.log(typeof true);
 console.log(typeof false);
+
+
+// Comparison Operators
 
 console.log(3 > 5);
 console.log(3 > 5 - 3);
