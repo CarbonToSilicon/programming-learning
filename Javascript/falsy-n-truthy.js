@@ -1,7 +1,15 @@
 // falsy values => false, 0, -0, 0n, "", NaN, undefined, null
 // truthy values => everything except falsy values
 
+console.log('text'/6);
+let boys;
+const girls = undefined;
+console.log(boys);
+console.log(girls);
 
+const num = 100n;
+console.log(num);
+console.log(typeof num);
 
 console.log('-- falsy values --')
 

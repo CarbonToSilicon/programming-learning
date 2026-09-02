@@ -33,3 +33,29 @@ if (age >= 120) {
 } else {
   console.log('You are not aligible to drive');
 }
+
+
+// ####### Some Popular if else shortcuts #######
+
+// ternery statement
+
+const result = 0 ? 'truthy' : 'falsy';
+console.log(result);
+
+const result1 = (1 > 0 || 3 === '3') ? '"if" works' : '"else" works';
+console.log(result1);
+
+// guard operator, short circuit evaluation
+
+let candidates = '';
+candidates && console.log(`There are total ${candidates}.`)
+
+const message = false && 'hello';
+console.log(message);
+
+// default operator
+
+const mainCurrency = 'USD';
+const Currency2 = null
+const Currency = Currency2 || mainCurrency;
+console.log(Currency);
