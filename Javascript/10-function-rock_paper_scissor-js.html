@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Rock Paper Scissors </title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-image: 
+            radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.5) 0%, transparent 40%),
+            radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.5) 0%, transparent 40%);            
+        min-height: 100vh;
+        background-repeat: no-repeat;
+    }
+
+    .rubik-glitch-regular {
+        font-family: "Rubik Glitch", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 10vw;
+        margin: 5vw;
+    }
+
+    .play-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        height: fit-content;
+        width:fit-content;
+        margin-right:5vw;
+        margin-left: 5vw; 
+    }
+
+    /* .btn {
+        background: transparent 100%;
+        background-image: radial-gradient(circle at center, rgb(255, 208, 78) 0%, transparent 80%);
+        height: 10rem;
+        width: 10rem;
+        border-radius: 50%;
+        border: 0;
+        margin-left: 2em;
+        margin-right: 2em;
+        font-size: 7rem;
+    } */
+    button {
+        width: 25vw;
+        height: 25vw;
+        border-radius: 50%;
+        font-size: 3.5rem;
+        cursor: pointer;
+        
+        /* 1. Semi-transparent white fill */
+        background: rgba(255, 255, 255, 0.25);
+        
+        /* 2. Blur the background elements behind the button */
+        backdrop-filter: blur(12px);
+        /* -webkit-backdrop-filter: blur(12px); */
+        
+        /* 3. High-contrast white border for realistic rim light */
+        border: 1.5px solid rgba(255, 255, 255, 0.6);
+        
+        /* 4. Multi-layered glass shadows */
+        box-shadow: 
+            0 8px 32px 0 rgba(31, 38, 135, 0.15), /* Outer drop shadow */
+            inset 0 0 12px 0 rgba(255, 255, 255, 0.5); /* Inner edge glare */
+            
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        background: rgba(255, 255, 255, 0.4);
+        border-color: rgba(255, 255, 255, 0.9);
+        transform: translateY(-5px);
+        box-shadow: 
+            0 12px 40px 0 rgba(31, 38, 135, 0.25),
+            inset 0 0 18px 0 rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <h2 class="rubik-glitch-regular"> Rock Paper Scissors </h2>
+
+  <section class="result-container">
+
+  </section>
+
+  <section class="play-container">
+    <button class="btn btn1" onclick="playGame('Rock');">✊</button>
+  
+    <button class="btn btn2" onclick="playGame('Paper');"> 🖐️</button>
+
+    <button class="btn btn3" onclick="playGame('Scissors');">✌️</button>
+  </section>
+  <script>
+    let computerMove = '';
+    let randomNum;
+    let result = '';
+    
+    function playGame(userMove) {
+        randomNum = Math.random();
+        if (randomNum > 0 && randomNum <= 0.33) {
+            computerMove = 'Rock';
+        } else if (randomNum > 0.33 && randomNum <= 0.66) {
+            computerMove = 'Paper';
+        } else {
+            computerMove = 'Scissors';
+        }
+        console.log(computerMove);
+        
+        if (computerMove === userMove) {
+            result = 'Tie 🤝';
+        } else if (
+            (computerMove === 'Rock' && userMove === 'Paper') ||
+            (computerMove === 'Paper' && userMove == 'Scissors') ||
+            (computerMove === 'Scissors' && userMove === 'Rock')
+        ) {
+            result = 'You win 🎉';
+        } else { 
+            result = 'You lose 🙊 ';
+        } 
+        alert(`You picked ${userMove}.\n Computer picked ${computerMove}.\n ${result}`)
+    }
+  </script>
+</body>
+</html>
