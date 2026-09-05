@@ -12,8 +12,9 @@
         background-image: 
             radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.5) 0%, transparent 40%),
             radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.5) 0%, transparent 40%);            
-        min-height: 100vh;
+        height: 200vh;
         background-repeat: no-repeat;
+        
     }
 
     .rubik-glitch-regular {
@@ -30,9 +31,8 @@
         align-items: center;
         flex-wrap: wrap;
         height: fit-content;
-        width:fit-content;
-        margin-right:5vw;
-        margin-left: 5vw; 
+        margin-right:10vw;
+        margin-left: 10vw; 
     }
 
     /* .btn {
@@ -50,7 +50,7 @@
         width: 25vw;
         height: 25vw;
         border-radius: 50%;
-        font-size: 3.5rem;
+        font-size: 18vw;
         cursor: pointer;
         
         /* 1. Semi-transparent white fill */
@@ -79,19 +79,43 @@
             0 12px 40px 0 rgba(31, 38, 135, 0.25),
             inset 0 0 18px 0 rgba(255, 255, 255, 0.7);
     }
+
+    .result-container {
+        height: 30vh;
+        border-radius: 3vw;
+        margin-left: 13vw;
+        margin-right: 13vw;
+        margin-top: 7vh;
+        margin-bottom: 7vh;
+        display: grid;
+        align-items: center;
+        justify-content: space-around;
+        background: rgba(250, 203, 102, 0.37);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: 
+        "aaa"
+        "bcd"
+        "bcd";
+    }
+
+    }
   </style>
 </head>
 <body>
   <h2 class="rubik-glitch-regular"> Rock Paper Scissors </h2>
 
   <section class="result-container">
-
+    <span class="title">Score</span>
+    <span class="line"></span>
+    <div id="computerScore" class="score score1"></div>
+    <div id="userScore" class="score score2"></div>
   </section>
 
   <section class="play-container">
     <button class="btn btn1" onclick="playGame('Rock');">✊</button>
   
-    <button class="btn btn2" onclick="playGame('Paper');"> 🖐️</button>
+    <button class="btn btn2" onclick="playGame('Paper');">🖐️</button>
 
     <button class="btn btn3" onclick="playGame('Scissors');">✌️</button>
   </section>
@@ -124,6 +148,15 @@
         } 
         alert(`You picked ${userMove}.\n Computer picked ${computerMove}.\n ${result}`)
     }
+
+    let c_Score = "0";
+    let com_displayScore = document.getElementById("computerScore");
+    com_displayScore.textContent = c_Score;
+
+    let u_Score = "0";
+    let user_displayScore = document.getElementById("userScore");
+    user_displayScore.textContent = u_Score;
+
   </script>
 </body>
 </html>
