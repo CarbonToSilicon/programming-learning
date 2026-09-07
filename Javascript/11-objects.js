@@ -51,7 +51,7 @@ console.log(product.newItem); // if a value does not exist it is shown as undefi
    we use json to send and store data in a computer
 */
 
-normalObject = {
+const normalObject = {
   name: 'Unkown',
   skill: 'python expert',
   married: false,
