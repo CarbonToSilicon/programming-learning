@@ -35,18 +35,7 @@
         margin-left: 6vw; 
     }
 
-    /* .btn {
-        background: transparent 100%;
-        background-image: radial-gradient(circle at center, rgb(255, 208, 78) 0%, transparent 80%);
-        height: 10rem;
-        width: 10rem;
-        border-radius: 50%;
-        border: 0;
-        margin-left: 2em;
-        margin-right: 2em;
-        font-size: 7rem;
-    } */
-    button {
+    .btn1 {
         width: 25vw;
         height: 25vw;
         border-radius: 50%;
@@ -72,7 +61,7 @@
         transition: all 0.3s ease;
     }
 
-    button:hover {
+    .btn1:hover {
         background: rgba(255, 255, 255, 0.4);
         border-color: rgba(255, 255, 255, 0.9);
         transform: translateY(-5px);
@@ -81,10 +70,36 @@
             inset 0 0 18px 0 rgba(255, 255, 255, 0.7);
     }
 
-    .result-container {
-        height: 35vw;
+    .main-display {
+        height: 40vw;
+        padding: 1vh;
         border-radius: 3vw;
-        margin: 7vh 13vw;
+        margin: 6.5vh 10vw;
+        display: grid;
+        
+        /* Allow children to fill the full height of their assigned grid area */
+        align-items: stretch;
+        justify-items: stretch;
+        
+        background: rgba(179, 250, 157, 0.37);
+        grid-template-columns: repeat(7, 1fr);
+        
+        /* 2 rows: Top row for Title, bottom row for Scores & Line */
+        grid-template-rows: repeat(4, 1fr); 
+        grid-template-areas: 
+            "i i i i i i i"
+            "i i i i i i i"
+            "i i i i i i i"
+            "i i i i i i i"
+            "j j j j j j j";
+        /* grid-gap: 1rem; */
+    }
+
+    .result-container {
+        grid-area: i;
+        height: 31vw;
+        border-radius: 3vw;
+        margin: 1vw 1vw;
         display: grid;
         
         /* Allow children to fill the full height of their assigned grid area */
@@ -104,19 +119,14 @@
         /* grid-gap: 1rem; */
     }
 
-    /* Shared Flexbox layout for children to center text vertically & horizontally */
     .score {
         margin: 0.1rem;
         padding: 0px;
         /* background: radial-gradient(at top, rgb(255, 220, 177), #ffffff55); */
         text-align: center;
-        /* text-decoration: wavy; */
-        /* font-family:Verdana, Geneva, Tahoma, sans-serif; */
-        /* border-radius: 6% 6% 6% 6%; */
         font-size: 3.5vw;
         justify-content: center;
         align-content: center;
-        /* grid-gap: 20px; */
     }
 
     .title {
@@ -127,13 +137,10 @@
 
     .score1 {
         grid-area: b;
-        /* justify-self: right; */
     }
 
     .line {
         grid-area: c;
-        /* Keeps the middle line thinner than the score boxes */
-        /* width: 30%; */
         justify-self: center;
         background: #000;
         width: 2px;
@@ -142,8 +149,6 @@
 
     .score2 {
         grid-area: d;
-        /* justify-self: left; */
-        /* width: 135%; */
     }
 
     .headComputer {
@@ -165,40 +170,77 @@
         grid-area: h;
         border-radius: 0 0 3vw 0;
     }
+
+    .second-display {
+        grid-area: j;
+        display: grid;
+        justify-content: stretch;
+        align-items: stretch;
+        
+    }
   </style>
 </head>
 <body>
   <h2 class="rubik-glitch-regular"> Rock Paper Scissors </h2>
 
-  <section class="result-container">
-    <div class="score title">Score</div>
-    <div class="score line"></div>
-    <div class="score headComputer"> Computer </div>
-    <div class="score headUser"> You </div>
-    <div id="computerScore" class="score score1">0</div>
-    <div id="userScore" class="score score2">0</div>
-    <div id="computerStep" class="score"></div>
-    <div id="userStep" class="score"></div>
+  <section class="main-display">
+    <section class="result-container">
+        <div class="score title">Score</div>
+        <div class="score line"></div>
+        <div class="score headComputer"> Computer </div>
+        <div class="score headUser"> You </div>
+        <div id="computerScore" class="score score1">0</div>
+        <div id="userScore" class="score score2">0</div>
+        <div id="computerStep" class="score"></div>
+        <div id="userStep" class="score"></div>
+    </section>
+    <section class="second-display">
+        <button class="sDisplay reset" onclick="resetFunc()">Reset</button>
+        <div id="displayStatus" class="sDisplay status"></div>
+    </section>
   </section>
 
   <section class="play-container">
-    <button class="btn btn1" onclick="playGame('Rock');">✊</button>
+    <button class="btn1 btn1a" onclick="playGame('Rock');">✊</button>
   
-    <button class="btn btn2" onclick="playGame('Paper');">🖐️</button>
+    <button class="btn1 btn1b" onclick="playGame('Paper');">🖐️</button>
 
-    <button class="btn btn3" onclick="playGame('Scissors');">✌️</button>
+    <button class="btn1 btn1c" onclick="playGame('Scissors');">✌️</button>
   </section>
   <script>
     let computerMove = '';
     let randomNum;
-    let result = '';
-    // let c_Score = '';
-    const data = {
-        cStep: "",
-        uStep: "",
+
+    let data = JSON.parse(localStorage.getItem('score')) || {
+      cStep: '',
+      uStep: '',
+      cScore: 0,
+      uScore: 0,
+      result: ''
+    };
+
+    function updateUI() {
+      document.getElementById("computerScore").textContent = data.cScore;
+      document.getElementById("userScore").textContent = data.uScore;
+      document.getElementById("computerStep").textContent = data.cStep;
+      document.getElementById("userStep").textContent = data.uStep;
+      document.getElementById("displayStatus").textContent = data.result;
+    }
+
+    updateUI();
+
+    function resetFunc() {
+        data = {
+        cStep: '',
+        uStep: '',
         cScore: 0,
         uScore: 0
-    };
+        };
+        
+        localStorage.removeItem('score');
+
+        updateUI();
+    }
 
     function playGame(userMove) {
         randomNum = Math.random();
@@ -212,34 +254,27 @@
         console.log(computerMove);
         
         if (computerMove === userMove) {
-            result = 'Tie 🤝';
+            data.result = 'Tie 🤝';
         } else if (
             (computerMove === 'Rock' && userMove === 'Paper') ||
             (computerMove === 'Paper' && userMove == 'Scissors') ||
             (computerMove === 'Scissors' && userMove === 'Rock')
         ) {
-            result = 'You win 🎉';
+            data.result = 'You win 🎉';
             data.uScore += 1;
         } else { 
-            result = 'You lose 🙊 ';
+            data.result = 'You lose 🙊 ';
             data.cScore += 1;
         } 
-        // alert(`You picked ${userMove}.\n Computer picked ${computerMove}.\n ${result}`)
+        // alert(`You picked ${userMove}.\n Computer picked ${computerMove}.\n ${result}`);
     
         data.cStep = computerMove;
         data.uStep = userMove;
-        let com_displayScore = document.getElementById("computerScore");
-        com_displayScore.textContent = data.cScore;
+       
+        // save scores is permanent storage
+        localStorage.setItem('score', JSON.stringify(data));
 
-        
-        let user_displayScore = document.getElementById("userScore");
-        user_displayScore.textContent = data.uScore;
-
-        let com_move = document.getElementById("computerStep");
-        com_move.textContent = data.cStep;
-
-        let u_move = document.getElementById("userStep");
-        u_move.textContent = data.uStep;
+        updateUI();
     }
   </script>
 </body>
