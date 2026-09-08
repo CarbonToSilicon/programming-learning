@@ -74,3 +74,60 @@ console.log(jsonData);
 // json to js object
 jsObj = JSON.parse(jsonData);
 console.log(jsObj);
+
+// auto-boxing
+  // other  values can also have properties and methods
+console.log('hello'.length);
+console.log('hello'.toUpperCase());
+
+  // we can update an object even when it is made using const
+const object1 = {
+  message1: 'hello!',
+  message2: 'hello!',
+  say: 'bey'
+}
+
+  // it is a reference (variable id) to another object and referece to another object is always equal to the original variable's reference
+const object2 = object1;
+console.log(object1 === object2);
+
+const object3 = {
+  message1: 'hello!',
+  message2: 'hello!',
+  say: 'bey'
+}
+
+  // we can't compare one object to another because those are just reference names
+console.log(object1 === object3);
+  // but we can compare one object's property to another object's property
+console.log(object1.message1 === object3.message1);
+console.log(object1.message2 === object3.message1);
+console.log(object1.message2 === object3.say);
+
+  // we can update a object and array's content when we are using const declaration because we are not changing the immediet reference
+object1.message = 'good job!';
+console.log(object1);
+
+  // destructuring shortcut for -
+// const message = object3.message1;
+const { message1, message2, message_3 } = object3;
+console.log(message1);
+console.log(message2);
+console.log(message_3);  // when we use defferent variable name than the property name it give undefined in the output
+
+  // shorthand method
+  // when a object property and the variable as value are same we can just write the variable name
+const object4 = {
+  // message1: message1
+  message1,
+  /*
+  method: function func1() {
+    console.log('go on');
+  },
+  */
+  method() {
+    console.log('go on');
+  } 
+}
+console.log(object4);
+object4.method();
