@@ -6,13 +6,17 @@
   <title> Rock Paper Scissors </title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
     body {
         margin: 0px;
         padding: 0px;
         background-image: 
             radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.5) 0%, transparent 40%),
             radial-gradient(circle at 80% 80%, hsla(330, 81%, 60%, 0.5) 0%, transparent 40%);            
-        height: 200vh;
+        height: 125vh;
         background-repeat: no-repeat;
         
     }
@@ -81,7 +85,7 @@
         align-items: stretch;
         justify-items: stretch;
         
-        background: rgba(179, 250, 157, 0.37);
+        background: rgba(252, 255, 251, 0.39);
         grid-template-columns: repeat(7, 1fr);
         
         /* 2 rows: Top row for Title, bottom row for Scores & Line */
@@ -173,10 +177,38 @@
 
     .second-display {
         grid-area: j;
+        height: 7vw;
         display: grid;
         justify-content: stretch;
         align-items: stretch;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-areas: 
+        "k l l l";
+        justify-content: stretch;
+        align-items: stretch;
+    }
+
+    .sDisplay {
+        background: radial-gradient(at top, rgb(255, 220, 177), #ffffff55);
+    }
+
+    .reset {
+        grid-area: k;
+        border: none;
+        background: radial-gradient(at center, rgb(255, 248, 248), rgb(252, 123, 91) 80%);
+        border-radius: 3vw;
+        margin: 1vw;
         
+    }
+
+    .status {
+        grid-area: l;
+        margin: 1vw;
+        justify-items: center;
+        border-radius: 3vw;
+        padding-left: 8vw;
+        padding-top: 1vw;
     }
   </style>
 </head>
