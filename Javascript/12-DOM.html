@@ -9,10 +9,28 @@
     </style>
 </head>
 <body>
+    <button>click</button>
 
     <script>
-        document.body.innerHTML = "hello";
-        console.log(document);
+        /*
+            // document is an object in js and body is its property
+        console.log(document.body);
+
+            // replaces all elements within the body tag with the code written in the innerHTML property 
+        document.body.innerHTML = "<h1> hello <br/> bro! </h1>";
+
+            // replaces document title with the text value inside title property
+        document.title = "don't know";
+        console.log(document.title)
+        */
+
+        console.log(document.querySelector('button'))
+
+            // selects the text inside the selected element
+        console.log(document.querySelector('button').innerHTML)
+
+            // only changes the text inside the element selected by querySelector() method
+        console.log(document.querySelector('button').innerHTML = 'go on');
     </script>
 </body>
 </html>
