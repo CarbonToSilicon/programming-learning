@@ -9,28 +9,129 @@
     </style>
 </head>
 <body>
-    <button>click</button>
+    <button id="id001" class="btn btn1"> click here </button>
+    <button id="id002" class="btn btn2"> click here </button>
+    
+    <h1> go to work</h1>
+    <h1> it is a para</h1>
 
+    <h4>
+      <ul>
+        <li> text1 </li>
+        <li> text2 </li>
+        <li> text3 </li>
+      </ul>
+      <ol>
+        <li> font1 </li>
+        <li> font2 </li>
+        <li> font3 </li>
+        <li> font4 </li>
+      </ol>
+    </h4>  
+  
     <script>
-        /*
-            // document is an object in js and body is its property
-        console.log(document.body);
+      /*
+        window - *parent of document node
+          |
+       document -*a Node
+          |
+         html - *child-Node of document node
+          | 
+ -------------------
+ |                 |
+<head>- siblings -<body> - *descendants of document 
+ |                 |     |
+ |-- <meta>        |-- <div>
+ |-- <meta>        |     |
+ |-- <title        |     |-- <img>
+ |-- <link>        |     |-- <h1>
+ |-- <style>       |     |-- <p>
+ |-- etc.          |
+                   |-- <script>
+      */
 
-            // replaces all elements within the body tag with the code written in the innerHTML property 
-        document.body.innerHTML = "<h1> hello <br/> bro! </h1>";
+      // every element inside an object is called "node"
 
-            // replaces document title with the text value inside title property
-        document.title = "don't know";
-        console.log(document.title)
-        */
 
-        console.log(document.querySelector('button'))
+      /*
+      // the "window" object represents the browser tab itself, it controls the browser frame, tabs, and global javascript environment. 
+      console.log(window);
+      window.alert('go to your home...');
+      window.console.log('helol/');
 
-            // selects the text inside the selected element
-        console.log(document.querySelector('button').innerHTML)
+      // the "document" object is an child object of "window" object. It represets the html page itself like body, head, url, title, cookie etc.
+      document.title = "document object";
+      window.document.body.innerHTML = "<h2> find on your own </h2>";
+      */
 
-            // only changes the text inside the element selected by querySelector() method
-        console.log(document.querySelector('button').innerHTML = 'go on');
+      /*
+      // use "console.dir()" to print object and its properties 
+      console.dir(document);
+      console.dir(window);
+      */
+
+      /////////////////////////////////////////////////////////
+      /*
+          // document is an object in js and body is its property
+      console.log(document.body);
+
+          // replaces all elements within the body tag with the code written in the innerHTML property 
+      document.body.innerHTML = "<h1> hello <br/> bro! </h1>";
+
+          // replaces document title with the text value inside title property
+      document.title = "don't know";
+      console.log(document.title)
+      */
+
+      /* 
+      console.log(document.querySelector('button'))
+
+          // selects the text inside the selected element
+      console.log(document.querySelector('button').innerHTML)
+
+          // only changes the text inside the element selected by querySelector() method
+      console.log(document.querySelector('button').innerHTML = 'go on');
+      */
+
+      //////////////////////////////////////////////////////      
+
+      // *** always write <script> in the end just before ending </body
+
+      /*
+      // selcting body elments using dom
+      let test = document.getElementById("id001");
+      console.log(test);
+      console.dir(document.getElementById("id001"));
+      console.log(document.getElementsByClassName("btn"));
+      console.log(document.getElementsByTagName("h1"));
+
+      console.log(document.querySelector("h1")); // returns first element
+      console.log(document.querySelector("#id002"));
+      console.log(document.querySelector(".btn"));
+
+      console.log(document.querySelectorAll('.btn')) // returns a Nodelist
+      */
+
+      // document properties
+        // .tagName
+      console.log(document.querySelector("button").tagName);
+      console.log(document.querySelector("h1").tagName);
+        // .innerText
+      console.log(document.querySelector("h4").firstChild);
+      console.log(document.querySelector("h4").firstElementChild);
+      console.log(document.querySelector("h4").lastChild);
+      console.log(document.querySelector("h4").firstElementChild);
+      console.log(document.querySelector("h4").children[0]);
+      console.log(document.querySelector("h4").children[1]);
+      
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
