@@ -95,7 +95,7 @@
 
       //////////////////////////////////////////////////////      
 
-      // *** always write <script> in the end just before ending </body
+      // *** always write <script> in the end just before ending </body>
 
       /*
       // selcting body elments using dom
@@ -116,14 +116,29 @@
         // .tagName
       console.log(document.querySelector("button").tagName);
       console.log(document.querySelector("h1").tagName);
-        // .innerText
+        // .firstChild and .lastChild
       console.log(document.querySelector("h4").firstChild);
-      console.log(document.querySelector("h4").firstElementChild);
       console.log(document.querySelector("h4").lastChild);
+        // .firstElementChild and .lastElementChild
+      console.dir(document.querySelector("h4").firstElementChild);
       console.log(document.querySelector("h4").firstElementChild);
+      console.log(document.querySelector("h4").lastElementChild);
+        // .children[]
       console.log(document.querySelector("h4").children[0]);
       console.log(document.querySelector("h4").children[1]);
-      
+        // .innerText
+      console.log(document.querySelector('li').innerText);
+      console.log(document.querySelector("ul").innerText);
+        // .innerHTML
+      console.log(document.querySelector('h4').innerHTML);
+      console.log(document.querySelector('ol').innerHTML = `
+        <li> hiss </li>
+        <li> hisssss </li>
+        <li> gogog </li>
+      `);
+      console.log(document.querySelector('h4').innerHTML);
+      console.log(document.querySelector('li').innerHTML = 'no text here');
+      console.log(document.querySelector('li'));
     </script>
 </body>
 </html>
