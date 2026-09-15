@@ -53,7 +53,7 @@
       // every element inside an object is called "node"
 
 
-      /*
+      
       // the "window" object represents the browser tab itself, it controls the browser frame, tabs, and global javascript environment. 
       console.log(window);
       window.alert('go to your home...');
@@ -62,7 +62,14 @@
       // the "document" object is an child object of "window" object. It represets the html page itself like body, head, url, title, cookie etc.
       document.title = "document object";
       window.document.body.innerHTML = "<h2> find on your own </h2>";
-      */
+
+      console.log(window.history.length);
+      console.dir(history);
+      console.log(history);
+      console.dir(window.navigator);
+      console.dir(window.location);
+      console.log(window.innerHeight);
+      console.dir(window.innerWidth);
 
       /*
       // use "console.dir()" to print object and its properties 
@@ -112,6 +119,7 @@
       console.log(document.querySelectorAll('.btn')) // returns a Nodelist
       */
 
+      /*
       // document properties
         // .tagName
       console.log(document.querySelector("button").tagName);
@@ -139,6 +147,7 @@
       console.log(document.querySelector('h4').innerHTML);
       console.log(document.querySelector('li').innerHTML = 'no text here');
       console.log(document.querySelector('li'));
+      */
     </script>
 </body>
 </html>
