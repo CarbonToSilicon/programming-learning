@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Object Model</title>
     <style>
-
+      .highlight-pink {
+        background-color: rgb(243, 88, 166);
+      }
     </style>
 </head>
 <body>
@@ -27,7 +29,9 @@
         <li> font3 </li>
         <li> font4 </li>
       </ol>
-    </h4>  
+    </h4>
+    <p> p </p>
+    <span> toggling css class using js classList</span>
   
     <script>
       /*
@@ -149,7 +153,9 @@
       console.log(document.querySelector('li').innerHTML = 'no text here');
       console.log(document.querySelector('li'));
       */
-
+      
+      /*
+      // exploring document properties
       console.log(document.body);
       console.log(document.scripts);
       console.log(document.links);
@@ -158,15 +164,41 @@
       console.log(document.styleSheets);
       console.log(document.anchors);
       console.log(document.head);
+      */
+
+      
+      // changing content and style of elements using DOM
+        // element.style.property = 'value';
+      document.querySelector('ul').style.backgroundColor = '#a53433';
+      document.querySelector('ol').style.color = '#9554e3';
+      
+        // element.textContent = 'value';
+      document.querySelector('h1').textContent = 'do not go';
+
+        // element.innerHTML = 'value';
+      document.querySelector('p').innerHTML = `<h1> innerHTML </h1>`;
+      
+      const applyClass = document.querySelector('span');
+      applyClass.classList.add('highlight-pink');
+      
+
+      /*
+      // creating and appending new elements using DOM
+        // 1. Create it
+      const newElement = document.createElement('h5');
+      newElement.textContent = 'New Heading';
+        // 2. Find where it should go
+      const container = document.querySelector('p');
+        // 3. Put it there
+      container.appendChild(newElement);
+
+      document.querySelector('p').style.color = "green";
+      */
+
+
 
     </script>
 </body>
 </html>
-
-
-
-
-
-
 
 
