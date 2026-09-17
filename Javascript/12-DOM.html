@@ -32,7 +32,9 @@
     </h4>
     <p> p </p>
     <span> toggling css class using js classList</span>
-  
+    <a class="attribute01" href="https://www.youtube.com/">YouTube</a>
+    <a class="attribute02" href="https://sso.rajasthan.gov.in/signin"> SSO </a>
+
     <script>
       /*
         window - *parent of document node
@@ -166,7 +168,7 @@
       console.log(document.head);
       */
 
-      
+      /*
       // changing content and style of elements using DOM
         // element.style.property = 'value';
       document.querySelector('ul').style.backgroundColor = '#a53433';
@@ -180,7 +182,7 @@
       
       const applyClass = document.querySelector('span');
       applyClass.classList.add('highlight-pink');
-      
+      */
 
       /*
       // creating and appending new elements using DOM
@@ -196,7 +198,18 @@
       */
 
 
+      // changing attributes of elements using DOM
+        // read an attribute
+      const attribute1 = document.querySelector('a');
+      const gettingAttribute = attribute1.getAttribute('href');
+      console.log(gettingAttribute);
+        // change an attribute 
+      const changeA = document.querySelector('a');
+      changeA.setAttribute('href', 'https://google.com');
+        // opens the link in new tab
+      changeA.setAttribute('target', '_blank');
 
+      
     </script>
 </body>
 </html>
