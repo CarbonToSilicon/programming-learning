@@ -3,14 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DOM, Events</title>
+    <style>
+      body {
+        background: #eeeeee;
+      }
+      .div1 {
+        height: 234px;
+        width: 234px;
+        background-color: #53f3e3;
+        color: #888888;
+        font-size: 5vw;
+      }
+      .event4 {
+        background-color: red;
+      }
+      #event5 {
+        display: flex;
+        background-color: #777777;
+        height: 17vh;
+        width: 17vh;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
 </head>
 <body>
+      <!--inline -> is bad--> 
     <button class="event1" onclick="console.log(1);alert('you clicked a button');"> button 1 </button>
-
+    <button class="event2"> button 2 click two times </button>
+    <div class="event3" onmouseover='alert("dont bother me"); console.log(99-100);'> hover me! </div>
+    <span class="event4"> i am 4th </span>
+    <section id="event5">Theme</section>
     <script>
-        // events and event listeners
+      // events and event listeners
+        // js node.event = () => {code} -> good
+      const btn1 = document.querySelector('.event2'); 
+      btn1.ondblclick = () => {
+        alert('button was clicked 2 times');
+        console.log('button was clicked 2 times');
+      }
 
+      const btn2 = document.querySelector(".event4");
+        // event listeners are even better way
+      btn2.addEventListener("click", (evt) => { // an event handler
+        console.log(evt);
+        console.log(evt.type);
+      });
+      btn2.addEventListener("mouseout", (e) => {
+        console.log(e.target);
+        console.log(e.clientX, e.clientY);
+      });
+      ////////////////////////////////////
+      let themeState = 'light';
+      const sec1 = document.querySelector("#event5");
+      const page0 = document.querySelector("body");
+      let mode0 = function mode() {
+        if (themeState === 'light') {
+          page0.style.background = '#333333';
+          console.log('dark mode on');
+          themeState = 'dark';
+        } else if (themeState === 'dark') {
+          page0.style.background = '#eeeeee';
+          console.log('light mode on');
+          themeState = 'light';
+        }
+      };
+      
+      sec1.addEventListener("click", mode0);
     </script>
 </body>
 </html> 
