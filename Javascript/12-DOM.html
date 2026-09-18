@@ -31,10 +31,10 @@
       </ol>
     </h4>
     <p> p </p>
-    <span> toggling css class using js classList</span>
-    <a class="attribute01" href="https://www.youtube.com/">YouTube</a>
-    <a class="attribute02" href="https://sso.rajasthan.gov.in/signin"> SSO </a>
-
+    <span> toggling css class using js .classList</span> <br/>
+    <a class="attribute01" href="https://www.youtube.com/"> YouTube </a> <br/>
+    <a class="attribute02" href="https://sso.rajasthan.gov.in/signin"> SSO </a> <br>
+    <button id="submit-btn" disabled> button </button>
     <script>
       /*
         window - *parent of document node
@@ -197,7 +197,7 @@
       document.querySelector('p').style.color = "green";
       */
 
-
+      
       // changing attributes of elements using DOM
         // read an attribute
       const attribute1 = document.querySelector('a');
@@ -208,7 +208,10 @@
       changeA.setAttribute('href', 'https://google.com');
         // opens the link in new tab
       changeA.setAttribute('target', '_blank');
-
+      
+        // remove an element
+      const removeAttr = document.querySelector('#submit-btn');
+      removeAttr.removeAttribute('disabled');
       
     </script>
 </body>
