@@ -4,18 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo list app</title>
-    <link rel="stylesheet" href="../css/15-todo-list.css" type="text/css"/>
+    <!-- <link rel="stylesheet" href="../css/15-todo-list.css" type="text/css"/> -->
+    <style>
+        html {
+            margin: 0;
+        }
+        
+        body {
+            margin: 0;
+            background: #bfeed8;
+        }
+        
+        .container1 {
+            margin: 0;
+            border-radius: 0 0 2rem 2rem;
+            display: grid;
+            background: #9c72ff;
+            height: 22vh;
+            /* width: 90vw; */
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .group1 {
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .input1 {
+            width: 30vw;
+        }
+        
+        .input1 {
+            padding-left: 1em;
+            padding-right: 1em;
+            border-radius: 1em;
+            /*background: linear-gradient(#fcaad7, #fff);*/
+        }
+        
+        .date1 {
+            border-radius: 1em;
+            /*background: linear-gradient(#fdaad7, #fff);*/
+            border-color: #ffff;
+        }
+        
+        .btn1 {
+            border-radius: 1em;
+            background: #a8f794;
+            border-color: #ffff;
+        }
+    </style>
 </head>
 <body>
     <section  class="form1 container1">
         <h1> To-Do List </h1>
         <form>
-            <input class="group1 text-input1" type="text" placeholder="Type a task">
-            <input class="group1 date1" type="date">
-            <button class="group1 btn1"> Add </button>
+            <input class="group1 text1 input1" type="text" placeholder="Type a task">
+            <input class="group1 date1" type="date" placeholder="dd/mm/yyyy">
+            <button class="group1 btn1" type="button" onclick="addTodo();"> Add </button>
         </form>
     </section>
     <!------------------------------------>
-    <script src="15-todo-list.js"></script>
+    <!-- <script src="15-todo-list.js"></script> -->
+    <script>
+        const todoTList = [];
+        const todoDList = [];
+        function addTodo() {
+            let todoName = document.querySelector(".text1");
+            
+            console.log(todoName.value);
+            if (todoName.value.trim() === "") return;
+            todoTList.push(todoName.value);
+            
+            todoName.value = "";
+
+            let todoDate = document.querySelector('.date1');
+            todoDList.push(todoDate.value);
+            todoDate.value = "";
+            console.log(todoTList);
+            console.log(todoDList);
+        };
+        // console.log("hhh");
+    </script>
 </body>
 </html>
