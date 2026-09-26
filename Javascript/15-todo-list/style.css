@@ -6,7 +6,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background: #bfeed8;
+    background: #cbb4d4;
 }
 
 .container1 {
@@ -25,6 +25,7 @@ body {
 
 .main-title {
     margin-bottom: 10px;
+    color: #ffffff;
 }
 /*.group1 {
     align-items: center;
