@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo list app</title>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <section  class="form1 container1">
+        <h1 class="main-title"> To-Do List </h1>
+        
+        <input class="group1 text1 input1" type="text" placeholder="What needs to be done?"/>
+        <input class="group1 date1" type="datetime-local" onchange="alert('Selected value: ' + this.value)"/>
+        <form>
+            <button class="group1 btn1" type="button" onclick="addTodo();"> ADD TO-DO </button>
+            <button class="group1 btn2" type=button"> CLEAR ALL </button>
+        </form>
+        
+    </section>
+    
+    <!-- model1 -->
+    <section class="container2">
+        <div class="filtered-date">04/10/2027</div>
+        <main class="task-list">
+            <!-- <div class="task-remove"></div> -->
+            <button class="task-remove"></button>
+            <div class="task-box"></div>
+            <input class="tick-box" type="checkbox">
+        </main>
+    </section>
+    <!------------------------------------>
+    <!-- <script src="15-todo-list.js"></script> -->
+    <script src="script.js"></script>
+</body>
+</html>

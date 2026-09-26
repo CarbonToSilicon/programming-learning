@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #111;
+    }
+    .form-container {
+      background: #fff;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 25px;
+      max-width: 500px;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #004085;
+    }
+    .btn-clear-all {
+      background-color: #6c757d;
+    }
+    .btn-clear-all:hover {
+      background-color: #5a6268;
+    }
+    .day-container {
+      margin-top: 20px;
+      background: white;
+      padding: 15px;
+      border-left: 4px solid #0056b3;
+      border-bottom: 1px solid #eee;
+      max-width: 600px;
+    }
+    .day-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 0 10px 0;
+      color: #222;
+    }
+    .task-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 3px 0 3px 15px;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-size: 15px;
+    }
+    .task-item:hover {
+      background-color: #f5f5f5;
+    }
+    .task-content {
+      flex-grow: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 10px;
+    }
+    .task-time {
+      font-weight: bold;
+      color: #666;
+      margin-right: 5px;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: #aaa;
+    }
+    .completed .task-time {
+      color: #ccc;
+    }
+    
+    /* MINIMAL BUTTON LAYOUT ADJUSTMENTS */
+    .action-buttons {
+      display: flex;
+      gap: 4px;
+      flex-shrink: 0; /* Prevents buttons from squeezing */
+    }
+    .btn-action {
+      padding: 2px 6px;
+      font-size: 11px;
+      font-weight: normal;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .btn-check {
+      background-color: #28a745;
+    }
+    .btn-check:hover {
+      background-color: #218838;
+    }
+    .btn-undo {
+      background-color: #ffc107;
+      color: #212529;
+    }
+    .btn-undo:hover {
+      background-color: #e0a800;
+    }
+    .btn-delete {
+      background-color: #dc3545;
+    }
+    .btn-delete:hover {
+      background-color: #c82333;
+    }
+    .no-tasks {
+      color: #666;
+      font-style: italic;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>To-Do List</h1>
+
+  <div class="form-container">
+    <form id="todoForm">
+      <div class="form-group">
+        <label for="taskDateTime">Choose Date & Time:</label>
+        <input type="datetime-local" id="taskDateTime" required>
+      </div>
+      <div class="form-group">
+        <label for="taskText">Task Description:</label>
+        <input type="text" id="taskText" placeholder="What needs to be done?" required>
+      </div>
+      <div class="button-group">
+        <button type="submit">ADD TO-DO</button>
+        <button type="button" class="btn-clear-all" onclick="clearEntireTimeline()">🗑️ CLEAR ALL</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="todoTimeline">
+    <!-- Tasks display here -->
+  </div>
+
+  <script>
+    let todoDatabase = JSON.parse(localStorage.getItem('todoDatabase')) || [];
+
+    const todoForm = document.getElementById('todoForm');
+    const todoTimeline = document.getElementById('todoTimeline');
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderTimeline();
+    });
+
+    function saveToLocalStorage() {
+      localStorage.setItem('todoDatabase', JSON.stringify(todoDatabase));
+    }
+
+    function addTask(rawDateTime, taskText) {
+      const targetDateObj = new Date(rawDateTime);
+      const dateKey = targetDateObj.toISOString().split('T')[0];
+
+      const formattedTime = targetDateObj.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }).toLowerCase();
+
+      const newTask = {
+        id: Date.now().toString(),
+        time: formattedTime,
+        text: taskText.trim(),
+        rawTimestamp: targetDateObj.getTime(),
+        done: false
+      };
+
+      const existingDay = todoDatabase.find(day => day.date === dateKey);
+
+      if (existingDay) {
+        existingDay.tasks.push(newTask);
+      } else {
+        todoDatabase.push({
+          date: dateKey,
+          tasks: [newTask]
+        });
+      }
+
+      saveToLocalStorage();
+    }
+
+    function toggleTaskStatus(taskId) {
+      todoDatabase.forEach(day => {
+        const targetTask = day.tasks.find(t => t.id === taskId);
+        if (targetTask) {
+          targetTask.done = !targetTask.done;
+        }
+      });
+      saveToLocalStorage();
+      renderTimeline();
+    }
+
+    function deleteTask(taskId) {
+      todoDatabase.forEach(day => {
+        day.tasks = day.tasks.filter(t => t.id !== taskId);
+      });
+      
+      todoDatabase = todoDatabase.filter(day => day.tasks.length > 0);
+      
+      saveToLocalStorage();
+      renderTimeline();
+    }
+
+    function clearEntireTimeline() {
+      if (confirm("Are you sure you want to delete all tasks permanently?")) {
+        localStorage.removeItem('todoDatabase');
+        todoDatabase = [];
+        renderTimeline();
+      }
+    }
+
+    function getSortedDatabase() {
+      const clonedData = JSON.parse(JSON.stringify(todoDatabase));
+
+      clonedData.forEach(day => {
+        day.tasks.sort((a, b) => b.rawTimestamp - a.rawTimestamp);
+      });
+
+      return clonedData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+
+    function renderTimeline() {
+      const sortedData = getSortedDatabase();
+      todoTimeline.innerHTML = '';
+
+      if (sortedData.length === 0) {
+        todoTimeline.innerHTML = '<div class="no-tasks">No tasks added yet.</div>';
+        return;
+      }
+
+      sortedData.forEach(dayGroup => {
+        const displayDate = new Date(dayGroup.date + "T00:00:00").toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric'
+        });
+
+        const container = document.createElement('div');
+        container.className = 'day-container';
+
+        let innerMarkup = `<div class="day-title">${displayDate}</div>`;
+        container.innerHTML = innerMarkup;
+
+        dayGroup.tasks.forEach(item => {
+          const itemRow = document.createElement('div');
+          itemRow.className = `task-item ${item.done ? 'completed' : ''}`;
+
+          itemRow.innerHTML = `
+            <div class="task-content">
+              [-] <span class="task-time">(${item.time})</span> ${item.text}
+            </div>
+            <div class="action-buttons">
+              <button class="btn-action ${item.done ? 'btn-undo' : 'btn-check'}" onclick="toggleTaskStatus('${item.id}')">
+                ${item.done ? 'Undo' : '✓ Done'}
+              </button>
+              <button class="btn-action btn-delete" onclick="deleteTask('${item.id}')">❌</button>
+            </div>
+          `;
+          container.appendChild(itemRow);
+        });
+
+        todoTimeline.appendChild(container);
+      });
+    }
+
+    todoForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const dateTimeVal = document.getElementById('taskDateTime').value;
+      const textVal = document.getElementById('taskText').value;
+
+      addTask(dateTimeVal, textVal);
+      renderTimeline();
+
+      document.getElementById('taskText').value = '';
+    });
+  </script>
+</body>
+</html>
