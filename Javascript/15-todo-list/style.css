@@ -68,7 +68,7 @@ body {
     border-color: #ffff;
 }
 .task-list {
-    height: 35px;
+    height: 40px;
     padding: 3px;
     /*background: #e7f37e;*/
     display: flex;
@@ -171,4 +171,17 @@ body {
     margin-bottom: 8px;
     margin-left: 10px;
     color: #515d93;
+}
+
+/* When the .task-box wrapper receives the .completed class, strike through its span text */
+.task-box.completed span {
+    text-decoration: line-through;
+    color: #9ca3af; /* Light grey color to make it look visually archived */
+    transition: all 0.2s ease; /* Smooth visual transition when checking the box */
+}
+
+.taskBoxText {
+    text-indent: 8px;
+    padding-top: 8px;
+    
 }
