@@ -14,7 +14,7 @@ body {
     border-radius: 0 0 2rem 2rem;
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to top, #cbb4d4 0%, #20002c 100%);
+    background-image: linear-gradient(to top, #861eaf 0%, #20002c 100%);
     /*background-image: linear-gradient(at top left,#20002c ,#cbb4d4);*/
     height: 195px;
     /* width: 90vw; */
@@ -106,7 +106,7 @@ body {
     place-content: center;
     cursor: pointer;
     vertical-align: middle;
-    margin-left: 10px;
+    margin-left: 7px;
     
     /* Smooth animation transition when clicked */
     transition: all 0.2s ease-in-out;
@@ -150,6 +150,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     /*background: image('remove-button.png');*/
+    margin-left: 2.8px;
     border: none;
     cursor: pointer;
     transition: filter 0.2s ease, transform 0.1s ease;
