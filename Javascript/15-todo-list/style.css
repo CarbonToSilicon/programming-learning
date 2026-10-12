@@ -56,7 +56,7 @@ body {
     height: 24px;
     width: 100px;
     border-radius: 1em;
-    background: #a8f794;
+    background: #78ec55ec;
     border-color: #ffff;
 }
 
@@ -64,7 +64,7 @@ body {
     height: 24px;
     width: 100px;
     border-radius: 1em;
-    background: #ffa854;
+    background: #ff7654;
     border-color: #ffff;
 }
 .task-list {
