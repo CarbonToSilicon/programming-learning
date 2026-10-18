@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion vs Coercion</title>
+</head>
+<body>
+    
+    <script>
+
+        // parseInt() function in JavaScript parses a string argument and returns an integer of the specified radix (number base).
+        console.log(parseInt("  45.545217  ", 10));
+        console.log(parseInt("0.25 "));
+        console.log(parseInt(23, 8)); //010011
+        console.log(parseInt("42px", 10));
+        console.log(parseInt("route66", 10));
+        console.log(parseInt('1A', 16)); //00011010
+        console.log(parseInt("11010", 2));
+        console.log(parseInt("0x1b", 16)); //00011011
+        console.log('\n');
+
+        // parseFloat() is a built-in Javascript function that parses a string argument and returns a floating point number.
+        console.log(parseFloat("15.2552"));
+        console.log(parseFloat("   0.55  "));
+        console.log(parseFloat("12.45px"));
+        console.log(parseFloat("4.5.6"));
+        console.log(parseFloat("Weight: 40"));
+        console.log(parseFloat("314e-2"));
+        console.log(parseFloat("Infinity"));
+        console.log('\n');
+
+        // toString() methode in js is a built-in function that converts a value or an object into its string representation.
+            // numbers to string
+        console.log((255).toString(2));
+        console.log((parseInt("777", 8)).toString(10));
+            // array to string
+        console.log([4, 6, 5].toString());
+            // plain objects to string
+        console.log({}.toString());
+        console.log({'a': 5}.toString());
+            // function to string
+        console.log((greet => {({}).toString() }).toString());
+            // dates to string
+        console.log(new Date().toString());
+    </script>
+</body>
+</html>
