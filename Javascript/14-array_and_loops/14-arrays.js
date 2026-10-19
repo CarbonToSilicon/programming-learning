@@ -6,7 +6,7 @@ console.log(Array.isArray(myArray));  // true
 console.log(Array.isArray(['hey', 'hello', 'hi']));  // true
 myArray[0] = 10;
 myArray[3] = 99;
-myArray[3] = 100;
+myArray[4] = 100;
 console.log(myArray);  // [ 10, 36, 60, 99, 100 ]
 console.log(myArray.length);  // 4
 
@@ -17,30 +17,60 @@ console.log(myArray.pop()); // 100
 console.log(myArray); // [ 60, 99 ]
 
 console.log(myArray.push(34, 55, 543)); // 5
-console.log(myArray); // [ 60, 99, 34, 55, 543 ]
+console.log( myArray[myArray.length] = 110 ); // 110
+console.log(myArray); // [ 60, 99, 34, 55, 543, 110 ]
 
 console.log(myArray.shift()); // 60
-console.log(myArray); // [ 99, 34, 55, 543 ]
+console.log(myArray); // [ 99, 34, 55, 543, 110 ]
 
-console.log(myArray.unshift([12, 56])); // 5
-console.log(myArray.unshift(6));  // 6
-console.log(myArray.unshift(90, 76, 478, 1)); // 10
-console.log(myArray); // [ 90, 76, 478, 1, 6, [ 12, 56 ], 99, 34, 55, 543 ]
+console.log(myArray.unshift([12, 56])); // 6
+console.log(myArray.unshift(6));  // 7
+console.log(myArray.unshift(90, 76, 478, 1)); // 11
+console.log(myArray); // [ 90, 76, 478, 1, 6, [ 12, 56 ], 99, 34, 55, 543, 110 ]
 
 const myArray2 = myArray.toSpliced(5, 1);
 
-for (let i=0; i < myArray2.length; i++) {
-  console.log(myArray2[i]);
-}
+console.log(myArray[0]); // 90
+console.log(myArray[-1]); // undefined
+console.log( myArray[myArray.length - 1] ); // 110
 
-for (let item of myArray2) {
-  console.log(item);
-}
+console.log( myArray.at(-1) ); // 110
 
-let sum = 0;
-for (item of myArray2) {
-  sum += item;
-}
-let avg = sum / myArray2.length;
-console.log(myArray2);
-console.log(`The average of all values of myArray is ${avg}`);
+  // array is also an object. its indexes are keys.
+  // array is coppied by reference just like an object
+let fruits = ['banana'];
+let arr = fruits;
+console.log( fruits === arr ); // true
+arr.push("pear");
+console.log(fruits); // [ 'banana', 'pear']
+
+  // we can also use it the wrong way like an object
+fruits = [];
+fruits[9] = 5;
+fruits.age = 24;
+console.log(fruits); // [ <9 empty items>, 5, age: 24 ]
+console.log(fruits.length); // 10
+console.log(fruits[3]); // undefined
+console.log(fruits[9]); // 5
+console.log(fruits.age); // 24
+// | it is irreversible to get back those values
+let nums = [1, 2, 3, 4, 5];
+nums.length = 2;
+console.log(nums); // [1, 2]
+
+// methods pop() and push() run faster than shift() and unshift()
+
+// loops over array
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+};
+
+// better use fo..of loop on multi item a variable
+for (fruit of fruits) {
+  console.log(fruit);
+  if (fruit === fruits.at(-1) ) {
+    console.log(`The last item is ${fruit}!`); // 5
+  };
+};
+
+
