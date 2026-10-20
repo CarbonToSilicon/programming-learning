@@ -66,11 +66,74 @@ for (let i = 0; i < fruits.length; i++) {
 };
 
 // better use fo..of loop on multi item a variable
-for (fruit of fruits) {
+for (let fruit of fruits) {
   console.log(fruit);
   if (fruit === fruits.at(-1) ) {
     console.log(`The last item is ${fruit}!`); // 5
   };
 };
 
+// another way to create an array
+let items = new Array(2);
+console.log( items[0] );
+console.log( items.length );
 
+let num_matrix = [
+  [1, 2, 3], 
+  [4, 5, 6],
+  [7, 8, 9]
+]
+
+console.log(num_matrix[2][0])
+
+// toString
+let arr2 = [1, 2, 3];
+console.log(arr2);
+console.log(arr2.toString());
+console.log(String(arr2));
+console.log(String(arr2) === '1,2,3');
+
+console.log([] + 1);
+console.log([1] + 1);
+console.log([1, 2] + 1);
+
+console.log('' + 1);
+console.log('1' + 1);
+console.log('1, 2' + 1);
+
+let prices = [4, 8, 15, 16, 23, 42]
+
+// forEach() method
+prices.forEach((price, i, ar) => {
+  ar[i] = price * 0.5;
+  console.log(price);
+  console.log( `=> ${ar[i]}` );
+})
+console.log(prices); // the original array changes
+
+// map() method
+let rates = [2, 6, 21, 34, 5]
+let N_rates = rates.map((rate, i, ar) => {
+  console.log(i, ar, rates);
+  return rate * 0.5;
+})
+console.log(N_rates);
+
+let t_rates = rates.map(price => price * 0.25);
+console.log(t_rates);
+
+const products = [
+  {name: "Laptop",     price: 499, color: "white"},
+  {name: "Smartphone", price: 899, color: "black"},
+  {name: "Headphone",  price: 50,  color: "grey"},
+  {name: "Tablet",     price: 199, color: "white"},
+  {name: "Keyboard",   price: 210, color: "blue"}
+]
+
+const discounts = products.map((product) => {
+  return {name: product.name, price: product.price *= 0.5, color: product.color}//{
+    // ...product,
+    // price: product.price * 0.5
+  //}
+})
+console.log(discounts);
