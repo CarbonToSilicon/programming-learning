@@ -111,7 +111,7 @@ prices.forEach((price, i, ar) => {
 })
 console.log(prices); // the original array changes
 
-// map() method
+// .map() method
 let rates = [2, 6, 21, 34, 5]
 let N_rates = rates.map((rate, i, ar) => {
   console.log(i, ar, rates);
@@ -131,9 +131,50 @@ const products = [
 ]
 
 const discounts = products.map((product) => {
-  return {name: product.name, price: product.price *= 0.5, color: product.color}//{
+  return {name: product.name, price: product.price *= 0.5, color: product.color} //{
     // ...product,
     // price: product.price * 0.5
   //}
 })
+console.log(products);
 console.log(discounts);
+
+const catagorisedProducts = products.map(product => {
+  let category;
+  if (product.price < 100) category = "budget";
+  else if (product.price < 400) category = "mid-range";
+  else category = "premium";
+  return { ...product, category };
+})
+console.log(catagorisedProducts);
+
+// .filter() method
+const points = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+let n_points = points.filter(n => n > 4);
+console.log(n_points);
+
+n_points = points.filter(n => n % 2 === 0);
+console.log(n_points);
+
+n_points = points.filter(n => n/2 === 7);
+console.log(n_points);
+
+// const products = [
+//   {name: "Laptop",     price: 249.5, color: "white"},
+//   {name: "Smartphone", price: 449.5, color: "black"},
+//   {name: "Headphone",  price: 25,  color: "grey"},
+//   {name: "Tablet",     price: 99.5, color: "white"},
+//   {name: "Keyboard",   price: 105, color: "blue"}
+// ]
+
+let affordableProducts = products.filter(product => product.price < 200)
+console.log(affordableProducts);
+
+affordableProducts = products.filter(product => product.name.includes("phone"))
+console.log(affordableProducts);
+
+affordableProducts = products.filter(product => {
+  return product.color === "white" && product.price < 200} )
+console.log(affordableProducts);
+
+// .reduce() method
