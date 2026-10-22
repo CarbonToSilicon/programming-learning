@@ -178,3 +178,27 @@ affordableProducts = products.filter(product => {
 console.log(affordableProducts);
 
 // .reduce() method
+
+// const products = [
+//   {name: "Laptop",     price: 249.5, color: "white"},
+//   {name: "Smartphone", price: 449.5, color: "black"},
+//   {name: "Headphone",  price: 25,  color: "grey"},
+//   {name: "Tablet",     price: 99.5, color: "white"},
+//   {name: "Keyboard",   price: 105, color: "blue"}
+// ]
+
+const totalPriceOfItems = products.reduce((accumulator, currentValue) => accumulator + currentValue.price, 0);
+console.log(`$ ${totalPriceOfItems}`);
+
+const words = ['Hello', ' ', 'world', '!', '\n']
+console.log(words.reduce((statement, word) => statement + word, ''))
+
+const fruitNames = ['apple', 'mango', 'orange', 'apple', 'orange', 'apple']
+const frq_of_fruits = fruitNames.reduce((totalOccurence, currentFruit) => {
+  if (!totalOccurence[currentFruit]) {
+    totalOccurence[currentFruit] = 0;
+  }
+  totalOccurence[currentFruit] += 1;
+  return totalOccurence},{})
+
+console.log(frq_of_fruits)
