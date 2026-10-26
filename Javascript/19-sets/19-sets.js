@@ -30,3 +30,31 @@ console.log(mS); // => Set(1) { [1, 2, 3] }
 mS.clear();
 console.log(mS);
 console.log(mS.size); // => 0
+
+mS.add('a').add('b').add('c').add('d'); // chained methods
+console.log(mS.size); // => 4
+console.log(mS); // => Set(4) { 'a', 'b', 'c', 'd' }
+mS.add([1, 2, 3]); 
+mS.add([1, 2, 3]); // both arrays looks identical but both take distinct space in the memory
+console.log(mS); // Set(6) { 'a', 'b', 'c', 'd', [ 1, 2, 3 ], [ 1, 2, 3 ] }
+
+const primes = new Set([2, 3, 5, 7]); // Set() only takes one parameter
+console.log(primes.has(3)); // => true; the set has the number
+console.log(primes.has('5')); // => false; not even a number and it does not exist in the set
+console.log(primes);
+
+let sum = 0;
+for (let p of primes) {
+    sum += p;
+}
+console.log(sum);
+
+console.log(Math.max(...primes));
+
+let set2Array = [...primes];
+console.log(Array.isArray(set2Array));
+console.log(set2Array);
+
+let product = 1;
+primes.forEach(p => product *= p );
+console.log(product);
