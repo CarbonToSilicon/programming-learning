@@ -34,7 +34,7 @@ console.log(m);
 let copy = new Map(m);
 
 let o = {'boys': 4, 'girls': 5};
-let p = new Map(Object.entries(o));
+let p = new Map(Object.entries(o)); // object to map
 console.log(p);
 
 console.log(p.delete('girls'));
@@ -45,7 +45,10 @@ console.log(p.size);
 p.clear();
 console.log(p);
 
-let c = new Map().set('dog', 34).set('git', true).set(52, 'key');
+let c = new Map()
+    .set('dog', 34)
+    .set('git', true)
+    .set(52, 'key');
 console.log(c);
 
 const r = new Map([['one', 1], ['one', 10]]);
@@ -62,3 +65,23 @@ console.log(q.get({})); // empty object is not a key
 
 q.set(q, undefined);
 console.log(q);
+
+// Iteration follows insertion order; each item contains a key and value.
+for (const [key, value] of myData) {
+	console.log(key, value);
+}
+
+console.log(q.keys());
+console.log(q.values());
+console.log(q.entries());
+
+const prices = new Map([
+    ['apple', 3],
+    ['banana', 2],
+    ['cherry', 5]
+]);
+
+// const fruits = Object.fromEntries(prices.entries());
+const fruits = Object.fromEntries(prices);
+
+console.log(fruits);
