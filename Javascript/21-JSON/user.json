@@ -1,0 +1,13 @@
+[
+    {
+        "userName":"tushar3434",
+        "age":20,
+        "isMarried":false,
+        "bankAcNo":null,
+        "interests":["cyber security","rust ai ml","web backend dev",852,null,true,{"at":"uk"},[0]],
+        "data":{"project":"advanced systems"}
+    },
+    {
+        "sdf": 34
+    }
+]
