@@ -1,10 +1,10 @@
-// // Boolean Values
+// Boolean Values
  
 // console.log(typeof true);
 // console.log(typeof false);
 
 
-// // Comparison Operators
+// Comparison Operators
 
 // console.log(3 > 5);
 // console.log(3 > 5 - 3);
@@ -39,20 +39,17 @@ let data = [
   [14], [ ("" == 0), ("" === 0), ( Object.is("", 0) ) ],
   [15], [ ('0' == 0), ('0' === 0), ( Object.is('0', 0) ) ],
   [16], [ ('17' == 17), ('17' === 17), ( Object.is('17', 17) ) ],
-  [17], [ ([1, 2] == '1, 2'), ([1, 2] === '1, 2'), ( Object.is([1, 2], '1, 2') ) ],
-  [18], [ (new String('foo') == 'foo'), (new String('foo') === 'foo'), ( Object.is(new String('foo'), 'foo') ) ],
-  [19], [ (null == undefined), (null === undefined), ( Object.is(null, undefined) ) ],
-  [20], [ (0 == NaN), (0 === NaN), ( Object.is(0, NaN) ) ],
-  [21], [ (null == false), (null === false), ( Object.is(null, false) ) ],
-  [22], [ (undefined == false), (undefined === false), ( Object.is(undefined, false) ) ],
-  [23], [ ({foo: 'b'} == {foo: 'b'}), ({foo: 'b'} === {foo: 'b'}), ( Object.is({foo: 'b'}, {foo: 'b'}) ) ],
-  [24], [ (new String('f') == new String('f')), (new String('f') === new String('f')), ( Object.is(new String('f'), new String('f')) ) ]
+  [17], [ (new String('foo') == 'foo'), (new String('foo') === 'foo'), ( Object.is(new String('foo'), 'foo') ) ],
+  [18], [ (null == undefined), (null === undefined), ( Object.is(null, undefined) ) ],
+  [19], [ (0 == NaN), (0 === NaN), ( Object.is(0, NaN) ) ],
+  [20], [ (null == false), (null === false), ( Object.is(null, false) ) ],
+  [21], [ (undefined == false), (undefined === false), ( Object.is(undefined, false) ) ],
+  [22], [ (new String('f') == new String('f')), (new String('f') === new String('f')), ( Object.is(new String('f'), new String('f')) ) ],
+  [23], [ (0 == null), (0 === null), ( Object.is(0, null) ) ],
+  [], [ (NaN == NaN), (NaN === NaN), ( Object.is(NaN, NaN) ) ]
   // [], [ ( == ), ( === ), ( Object.is() ) ]
   // [], [ ( == ), ( === ), ( Object.is() ) ]
   // [], [ ( == ), ( === ), ( Object.is() ) ]
-  // [], [ ( == ), ( === ), ( Object.is() ) ]
-  // [], [ ( == ), ( === ), ( Object.is() ) ]
-
 ];
 
 console.log(data);
