@@ -37,3 +37,5 @@ if (!!true) {
 }
 console.log(!'hello');
 console.log(!'');
+
+console.log(5 > 2 && 2 === 2);
