@@ -1,9 +1,9 @@
 // 1st function
 
-function function1() {
+function func1(a, b) {
   console.log('hello');
-  console.log(2 + 2);
+  console.log(a + b);
 }
 
-function1();
-function1();
+func1(34, 3);
+func1(10, 20);
