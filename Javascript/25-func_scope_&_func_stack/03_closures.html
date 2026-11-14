@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Closures</title>
+</head>
+<body>
+  <button id="red"> Red </button>
+  <button id="blue"> Blue </button>
+  <button id="green"> Green </button>
+<script>
+  function makeFunc() {
+    const name = "Mozilla";
+    function displayName() {
+      console.log(name);
+    }
+    return displayName; // clouser
+  }
+  makeFunc(); // this only gets the returned inner function 'displayName()'
+  const myFunc = makeFunc(); // same with this
+  myFunc(); // this executes the inner function 'displayName()' so this prints the name
+  console.log(makeFunc); // vs
+  console.log(makeFunc());
+</script>
+<script>
+  
+  function clickHandler(color) {
+    return function (){
+      document.body.style.backgroundColor = `${color}`
+    }
+  }
+  document.getElementById("red").onclick = clickHandler('red');
+  document.getElementById("blue").onclick = clickHandler('blue');
+  document.getElementById("green").onclick = clickHandler('green');
+  
+</script>
+</body>
+</html>
