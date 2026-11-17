@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IIFEs</title>
+</head>
+<body>
+
+<script>
+  // IIFE = Immediately Invoked Function Expressions
+
+  // with annonymous arrow function inside
+  (() => {
+    console.log('hi!');
+  })();
+  
+  // with the function keyword
+  (function () {
+    console.log('bey');
+  })();
+  
+  // with a function name (allows for recursion)
+  (function myIIFE() {
+    num++
+    console.log(num);
+    return num !== 5 ? myIIFE(num) : console.log('Program finished.')
+  })(num = 0);
+  
+  // reason 1) Private variables and methods from closure
+  const Increment = (() => {
+    counter = 0;
+    console.log(counter);
+    const credits = (num) => console.log(`I have ${num} credit(s).`)
+    return () => {counter++; credits(counter);}
+  })();
+  Increment();
+  Increment();
+  Increment();
+  
+  // reason 2) The module pattern
+  const Scope = (() => {
+    let count = 0;
+    return {
+      current: () => {return count},
+      increment: () => {count++},
+      reset: () => {count = 0}
+    }
+  })();
+  
+  Scope.increment();
+  console.log(Scope.current());
+  Scope.increment();
+  Scope.increment();
+  console.log(Scope.current());
+  Scope.reset();
+  console.log(Scope.current());
+  
+  // Reason 3) Injecting a namespace object
+
+  ((namespace) => {
+    namespace.count = 0;
+    namespace.current = function () {return `The app count is ${this.count}.`};
+    namespace.increment = function () {this.count++};
+    namespace.reset = function () {this.count=0};
+  })(window.App = window.App || {});
+  console.log(App.current());
+  App.increment();
+  console.log(App.current());
+  console.log(window.App);
+</script>
+</body>
+</html>
