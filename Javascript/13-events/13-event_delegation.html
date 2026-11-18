@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Delegation</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #eeeeee;
+    }
+    ul {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+    }
+    li {
+      padding: 10px;
+      margin-bottom: 5px;
+      background: #e0e0e0;
+      cursor: pointer;
+      list-style: none;
+      border-radius: 4px;
+    }
+    /* toggled */
+    .completed {
+      background: #53f3e3;
+      text-decoration: line-through;
+      color: #555;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Freelance Project Tasks</h2>
+  <ul id="task-list"> <!--event listener on this-->
+    <li>Design responsive pricing table</li>
+    <li>Review Django admin workflows</li>
+    <li>compare Node.js learning timeline</li>
+  </ul>
+
+  <button id="add-btn">Add New Task</button>
+  
+  <script>
+    const taskList = document.getElementById('task-list');
+    const addBtn = document.querySelector('#add-btn');
+    taskList.addEventListener('click', function(event) {
+      if (event.target.tagName == 'LI') {
+        event.target.classList.toggle('completed');
+      }
+    });
+    let taskCounter = 1;
+    addBtn.addEventListener('click', function() {
+      const newTask = document.createElement('li');
+      newTask.textContent = `New Client Task ${taskCounter}`;
+      taskList.appendChild(newTask);
+      taskCounter++;
+    })
+  </script>
+</body>
+</html>
