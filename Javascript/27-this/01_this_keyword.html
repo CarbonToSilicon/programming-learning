@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>"this"</title>
+  <style>
+    .clicked {
+      background: #ff0000;
+      font-size: 150px;
+      height: 100vh;
+      width: 100vw;
+      color: #00ff00;
+      font-family: sans-serif;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="btn-1">Tap me!</button>
+  
+  <script>
+    console.log(this);
+    
+    // this is just like a pronoun 'I' when 
+    // Ram says 'I am learning' this means Ram is learning
+    // It depends on how the function is called at the runtime
+    // 'this' refers to the object that is currently executing the function
+    // the 'this' keyword is a dynamic reference variable that points to the object currently executing a function.
+
+    // 4 scenarios ->
+
+    // 1. Inside an Object Method (the most common)
+    const user ={
+      username: 'admin',
+      role: 'developer',
+      printProfile: function() {
+        // 'this' looks at the printProfile()
+        console.log(this.username + " is a " + this.role);
+      }
+    };
+    // this refers to the object before the dot, 'user'
+    user.printProfile(); // >>> admin is a developer
+
+    // 2. Inside a DOM event-listener
+    const myBtn = document.querySelector('.btn-1');
+    myBtn.addEventListener('click', function() {
+      console.log(this);
+      this.textContent = "Fook You!";
+      this.classList.add('clicked');
+    });
+
+    // 3. Inside a Regular Function (Global Scope)
+    (function showThis() {
+      console.log(this);
+    })();
+
+    // 4. The Exception: Arrow Function '=>'
+    const project = {
+      title: "Pricing Table",
+       // 'this' belongs to this object that called it
+      standardLog: function() {
+        console.log(this.title);
+      },
+       // ignores the object and inherits 'this' from the gloabl window
+      arrowLog: () => {
+        console.log(this.title);
+      }
+    };
+    project.standardLog(); // >>> "Pricing Table"
+    project.arrowLog(); // >>> undefined (because window.title doesn't exist)
+
+    // 5. using it alone
+    /*
+      When 'this' is used outside any function, it refers to the global object.
+        In a browser, that is window.
+        In Node.js at the top level of a module, 'this' refers to 'module.exports'.
+      This usage is rarely needed in application code.
+    */
+  </script>
+</body>
+</html>
