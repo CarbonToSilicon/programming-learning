@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call() methods</title>
+</head>
+<body>
+    <script>
+        // this in method
+        const student = {
+            printDetail: function (greet, address) {
+                console.log(`${greet} ${this.st_name}, you are ${this.age} and live in ${address}`)
+            }
+        }
+        const student_01 = {
+            st_name: 'Ramesh',
+            age: 17,
+        }
+        const student_02 = {
+            st_name: 'Kajal',
+            age: 19,
+        }
+        const student_03 = {
+            st_name: 'Lokesh',
+            age: 17,
+        }
+        
+        // call()
+        student.printDetail.call(student_01, 'Hello', 'Kankroli');
+        student.printDetail.call(student_02, 'Hey', 'Jaipur');
+        student.printDetail.call(student_03, 'Hello', 'Udaipur');
+        console.log('');
+
+        // apply()
+        student.printDetail.apply(student_01, ['Hello', 'Bundi']);
+        student.printDetail.apply(student_02, ['Hi', 'Kota']);
+        student.printDetail.apply(student_03, ['Hey', 'Jodhpur']);
+
+        // bind()
+        
+
+    </script>
+</body>
+</html>
