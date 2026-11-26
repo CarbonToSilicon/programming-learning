@@ -26,20 +26,25 @@
             age: 17,
         }
         
-        // call()
+        // call() just to use a method from an object multiple times on other objects out side of the method object
         student.printDetail.call(student_01, 'Hello', 'Kankroli');
         student.printDetail.call(student_02, 'Hey', 'Jaipur');
         student.printDetail.call(student_03, 'Hello', 'Udaipur');
         console.log('');
 
-        // apply()
+        // apply() when data is organized in array format
         student.printDetail.apply(student_01, ['Hello', 'Bundi']);
         student.printDetail.apply(student_02, ['Hi', 'Kota']);
         student.printDetail.apply(student_03, ['Hey', 'Jodhpur']);
+        console.log('');
 
-        // bind()
-        
-
+        // bind() to save memory for some time and later use
+        const first = student.printDetail.bind(student_01, 'Hello', 'Raipur');
+        const second = student.printDetail.bind(student_02, 'Hey', 'Ajmer');
+        const third = student.printDetail.bind(student_03, 'Hi', 'Dudu');
+        third();
+        second();
+        first();
     </script>
 </body>
 </html>
