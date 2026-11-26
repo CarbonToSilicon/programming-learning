@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout and setInterval</title>
+</head>
+<body>
+    <script>
+        console.log('Start');
+
+        // 1
+        const task = setTimeout((say) => {
+            console.log('7 seconds completed.');
+        }, 7000);
+
+        // 2
+        const print = '3 seconds completed.'
+        let flag;
+        function myfunc(a) {
+            console.log(a);
+            flag = 1;
+        };
+        const task1 = setTimeout(myfunc, 3000, print);
+
+        console.log('End');
+
+        if (flag === 1){ // this is syncronous code and will not complete
+            console.log('completed');
+        };
+
+    </script>
+</body>
+</html>
